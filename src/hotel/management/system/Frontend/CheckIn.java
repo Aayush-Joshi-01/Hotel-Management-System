@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package hotel.management.system.GUI;
+package hotel.management.system.Frontend;
 
 /**
  *
@@ -129,7 +129,7 @@ public class CheckIn extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void checkin(String args[]) {
+    public static void checkin() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
