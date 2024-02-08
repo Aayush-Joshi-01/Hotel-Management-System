@@ -149,18 +149,19 @@ public class AddRooms extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int roomnumber = Integer.parseInt(roomNumberField.getText());
-    String available = (String) availablityComboBox.getSelectedItem();
-    String status = (String) cleaningStatusComboBox.getSelectedItem();
-    int price = Integer.parseInt(priceField.getText());
-    String bedType = (String) bedTypeComboBox.getSelectedItem();
-    Database db = new Database();
-    String insertQuery = "INSERT INTO Room(room_number, availability, clean_status, price, bed_type) VALUES (" + roomnumber + ", '" + available + "', '" + status + "', " + price + ", '" + bedType + "')";
-    db.executeQuery("Room", insertQuery);
+        String available = (String) availablityComboBox.getSelectedItem();
+        String status = (String) cleaningStatusComboBox.getSelectedItem();
+        int price = Integer.parseInt(priceField.getText());
+        String bedType = (String) bedTypeComboBox.getSelectedItem();
+        Database db = new Database();
+        String insertQuery = "INSERT INTO Room(room_number, availability, clean_status, price, bed_type) VALUES (" + roomnumber + ", '" + available + "', '" + status + "', " + price + ", '" + bedType + "')";
+        db.executeQuery("Room", insertQuery);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         AddRooms obj = new AddRooms();
+        obj.setVisible(false);
         obj.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

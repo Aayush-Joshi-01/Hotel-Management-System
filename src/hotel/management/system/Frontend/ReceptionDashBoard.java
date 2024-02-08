@@ -4,6 +4,7 @@
  */
 package hotel.management.system.Frontend;
 
+import hotel.management.system.Backend.EmployeeQuery;
 import hotel.management.system.Backend.RoomsQuery;
 
 /**
@@ -43,6 +44,7 @@ public class ReceptionDashBoard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reception");
+        setLocation(new java.awt.Point(0, 0));
         setResizable(false);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -211,6 +213,8 @@ public class ReceptionDashBoard extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        EmployeeQuery empq = new EmployeeQuery();
+        empq.employeeQuery();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

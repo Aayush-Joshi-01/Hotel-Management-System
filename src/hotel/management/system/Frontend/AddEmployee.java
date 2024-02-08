@@ -4,6 +4,8 @@
  */
 package hotel.management.system.Frontend;
 
+import hotel.management.system.Backend.Database;
+
 /**
  *
  * @author HP
@@ -36,14 +38,14 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
+        ageField = new javax.swing.JTextField();
+        genderComboBox = new javax.swing.JComboBox<>();
+        jobComboBox = new javax.swing.JComboBox<>();
+        salaryField = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
+        aadhaarField = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel10.setText("jLabel10");
@@ -89,28 +91,45 @@ public class AddEmployee extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Email");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 334, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 56, 197, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 94, 197, -1));
+        getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 56, 197, -1));
+        getContentPane().add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 94, 197, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 134, 197, -1));
+        genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
+        getContentPane().add(genderComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 134, 197, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choice 1", "Choice 2", "Choice 3" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 174, 197, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 214, 197, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 254, 197, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 294, 197, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 334, 197, -1));
+        jobComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Receptionist", "Cleaner", "Cook" }));
+        getContentPane().add(jobComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 174, 197, -1));
+        getContentPane().add(salaryField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 214, 197, -1));
+        getContentPane().add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 254, 197, -1));
+        getContentPane().add(aadhaarField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 294, 197, -1));
+        getContentPane().add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 334, 197, -1));
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 374, 197, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String name = nameField.getText();
+        int age = Integer.parseInt(ageField.getText());
+        String gender = (String) genderComboBox.getSelectedItem();
+        String job = (String) jobComboBox.getSelectedItem();
+        int salary = Integer.parseInt(salaryField.getText());
+        long phone = Long.parseLong(phoneField.getText());
+        long adhar = Long.parseLong(aadhaarField.getText());  // Assuming adhar is a 12-digit number
+        String email = emailField.getText();
+        Database db = new Database();
+        String insertEmployeeQuery = "INSERT INTO Employee (name, age, gender, job, salary, phone, adhar, email) VALUES ('"+ name + "', " + age + ", '" + gender + "', '" + job + "', " + salary + ", " + phone + ", " + adhar + ", '"+ email + "')";
+        db.executeQuery("Employee", insertEmployeeQuery);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void addEmployee() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -144,9 +163,11 @@ public class AddEmployee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aadhaarField;
+    private javax.swing.JTextField ageField;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JComboBox<String> genderComboBox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -157,11 +178,9 @@ public class AddEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JComboBox<String> jobComboBox;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JTextField phoneField;
+    private javax.swing.JTextField salaryField;
     // End of variables declaration//GEN-END:variables
 }
