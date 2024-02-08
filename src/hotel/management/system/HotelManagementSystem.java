@@ -8,26 +8,26 @@ public class HotelManagementSystem {
     public final static String user = "root";
     public final static String password = "1234567890";
     public static void main(String[] args) {
-//        Connection conn = null;
-//		try{
-//			//Register the JDBC driver
-//			Class.forName(DB_DRIVER);
-// 
-//			//Open the connection
-//			conn = DriverManager.
-//			getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-// 
-//			if(conn != null){
-//			   System.out.println("Successfully connected.");
-//			}else{
-//			   System.out.println("Failed to connect.");
-//			}
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
+        Connection conn = null;
+		try{
+			//Register the JDBC driver
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+ 
+			//Open the connection
+			conn = DriverManager.
+			getConnection(jdbcURL, user, password);
+ 
+			if(conn != null){
+			   System.out.println("Successfully connected.");
+			}else{
+			   System.out.println("Failed to connect.");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
         StartingPage startingPageFrame = new StartingPage();
-//        InitialDatabaseSchema db = new InitialDatabaseSchema();
-//        db.schema();
+        InitialDatabaseSchema db = new InitialDatabaseSchema();
+        db.schema();
         startingPageFrame.startingPage();
 
     }
